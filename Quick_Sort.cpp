@@ -4,10 +4,10 @@
 #include<ctime>
 using namespace std;
 
-int partition(int A[], int left, int right){	//È·¶¨Ö÷ÔªÎ»ÖÃ,µ±Ç°Îªleft
-	int pos = round(1.0 * rand() / RAND_MAX * (double(right) - double(left)) + left);			//Ëæ»úÑ¡È¡Ò»¸öÎ»ÖÃ
+int partition(int A[], int left, int right){	//ç¡®å®šä¸»å…ƒä½ç½®,å½“å‰ä¸ºleft
+	int pos = round(1.0 * rand() / RAND_MAX * (double(right) - double(left)) + left);			//éšæœºé€‰å–ä¸€ä¸ªä½ç½®
 	int temp = A[pos];
-	swap(A[pos], A[left]);		//½»»»leftºÍpos´¦µÄÖµ
+	swap(A[pos], A[left]);		//äº¤æ¢leftå’Œposå¤„çš„å€¼
 	while (left < right) {
 		while (temp < A[right] && left < right)	right--;
 		A[left] = A[right];
@@ -18,7 +18,7 @@ int partition(int A[], int left, int right){	//È·¶¨Ö÷ÔªÎ»ÖÃ,µ±Ç°Îªleft
 	return left;
 }
 
-void QuickSort(int A[], int left, int right) {	//¿ìËÙÅÅĞòµÄµİ¹éÊµÏÖ
+void QuickSort(int A[], int left, int right) {	//å¿«é€Ÿæ’åºçš„é€’å½’å®ç°
 	if (left < right) {
 		int pos = partition(A, left, right);
 		QuickSort(A, left, pos - 1);
@@ -27,7 +27,7 @@ void QuickSort(int A[], int left, int right) {	//¿ìËÙÅÅĞòµÄµİ¹éÊµÏÖ
 }
 
 int main() {
-	srand((unsigned)time(NULL));		//Ê¹ÓÃËæ»úÊı£¬time()´«ÈëÏµÍ³Ê±¼ä
+	srand((unsigned)time(NULL));		//åˆå§‹åŒ–éšæœºæ•°å‘ç”Ÿå™¨ï¼Œtime()ä¼ å…¥ç³»ç»Ÿæ—¶é—´
 	int A[10] = { 12,10,88,65,78,15,26,47,90,11 };
 	QuickSort(A, 0, 9);
 	for (int i = 0; i <= 9; i++) {
